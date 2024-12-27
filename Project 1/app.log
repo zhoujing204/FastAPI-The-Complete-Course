@@ -1,0 +1,42 @@
+2024-12-27 17:42:46,169 - uvicorn.error - INFO - Started server process [9828]
+2024-12-27 17:42:46,170 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:42:46,171 - uvicorn.error - INFO - Application startup complete.
+2024-12-27 17:43:42,850 - uvicorn.error - INFO - Started server process [16136]
+2024-12-27 17:43:42,850 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:43:42,850 - uvicorn.error - INFO - Application startup complete.
+2024-12-27 17:44:17,584 - uvicorn.error - INFO - Started server process [17296]
+2024-12-27 17:44:17,585 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:44:17,586 - uvicorn.error - INFO - Application startup complete.
+2024-12-27 17:44:26,129 - books - DEBUG - Read all books
+2024-12-27 17:45:49,653 - uvicorn.error - INFO - Started server process [9656]
+2024-12-27 17:45:49,653 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:45:49,654 - uvicorn.error - INFO - Application startup complete.
+2024-12-27 17:45:54,376 - uvicorn.error - INFO - Started server process [14448]
+2024-12-27 17:45:54,377 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:45:54,377 - uvicorn.error - INFO - Application startup complete.
+2024-12-27 17:46:12,231 - uvicorn.error - INFO - Shutting down
+2024-12-27 17:46:19,183 - uvicorn.error - INFO - Started server process [3116]
+2024-12-27 17:46:19,184 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:46:19,184 - uvicorn.error - INFO - Application startup complete.
+2024-12-27 17:46:25,712 - books - DEBUG - Read all books
+2024-12-27 17:47:03,306 - books - DEBUG - [{'title': 'Title1', 'author': 'Author1', 'category': 'science'}]
+2024-12-27 17:47:03,307 - books - DEBUG - [{'title': 'Title1', 'author': 'Author1', 'category': 'science'}, {'title': 'Title2', 'author': 'Author2', 'category': 'science'}]
+2024-12-27 17:47:03,307 - books - DEBUG - [{'title': 'Title1', 'author': 'Author1', 'category': 'science'}, {'title': 'Title2', 'author': 'Author2', 'category': 'science'}]
+2024-12-27 17:47:03,307 - books - DEBUG - [{'title': 'Title1', 'author': 'Author1', 'category': 'science'}, {'title': 'Title2', 'author': 'Author2', 'category': 'science'}]
+2024-12-27 17:47:03,307 - books - DEBUG - [{'title': 'Title1', 'author': 'Author1', 'category': 'science'}, {'title': 'Title2', 'author': 'Author2', 'category': 'science'}]
+2024-12-27 17:47:03,307 - books - DEBUG - [{'title': 'Title1', 'author': 'Author1', 'category': 'science'}, {'title': 'Title2', 'author': 'Author2', 'category': 'science'}]
+2024-12-27 17:47:11,870 - books - DEBUG - []
+2024-12-27 17:47:11,870 - books - DEBUG - []
+2024-12-27 17:47:11,870 - books - DEBUG - []
+2024-12-27 17:47:11,870 - books - DEBUG - [{'title': 'Title4', 'author': 'Author4', 'category': 'math'}]
+2024-12-27 17:47:11,870 - books - DEBUG - [{'title': 'Title4', 'author': 'Author4', 'category': 'math'}, {'title': 'Title5', 'author': 'Author5', 'category': 'math'}]
+2024-12-27 17:47:11,870 - books - DEBUG - [{'title': 'Title4', 'author': 'Author4', 'category': 'math'}, {'title': 'Title5', 'author': 'Author5', 'category': 'math'}, {'title': 'Title6', 'author': 'Author2', 'category': 'math'}]
+2024-12-27 17:47:21,085 - books - DEBUG - []
+2024-12-27 17:47:21,086 - books - DEBUG - []
+2024-12-27 17:47:21,086 - books - DEBUG - [{'title': 'Title3', 'author': 'Author3', 'category': 'history'}]
+2024-12-27 17:47:21,086 - books - DEBUG - [{'title': 'Title3', 'author': 'Author3', 'category': 'history'}]
+2024-12-27 17:47:21,086 - books - DEBUG - [{'title': 'Title3', 'author': 'Author3', 'category': 'history'}]
+2024-12-27 17:47:21,086 - books - DEBUG - [{'title': 'Title3', 'author': 'Author3', 'category': 'history'}]
+2024-12-27 17:47:55,352 - uvicorn.error - INFO - Started server process [10100]
+2024-12-27 17:47:55,353 - uvicorn.error - INFO - Waiting for application startup.
+2024-12-27 17:47:55,354 - uvicorn.error - INFO - Application startup complete.
