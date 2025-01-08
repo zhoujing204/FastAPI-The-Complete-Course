@@ -16,6 +16,7 @@ def get_db():
 app = FastAPI()
 
 models.Base.metadata.create_all(bind=engine)
+
 db_dependency = Annotated[Session, Depends(get_db)]
 
 @app.get("/")
@@ -31,7 +32,7 @@ async def delete_todo(db: db_dependency, todo_id: int = Path(gt=0)):
     db.commit()
 
 
-# app.include_router(auth.router)
+app.include_router(auth.router)
 # app.include_router(todos.router)
 # app.include_router(admin.router)
 # app.include_router(users.router)
