@@ -6,6 +6,11 @@ from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
 from models import Users
+from passlib.context import CryptContext
+
+bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
+
+
 
 router = APIRouter()
 
@@ -36,7 +41,7 @@ async def create_user(db: db_dependency,
         first_name=create_user_request.first_name,
         last_name=create_user_request.last_name,
         role=create_user_request.role,
-        hashed_password=create_user_request.password,
+        hashed_password=bcrypt_context.hash(create_user_request.password),
         is_active=True
     )
     db.add(create_user_model)
