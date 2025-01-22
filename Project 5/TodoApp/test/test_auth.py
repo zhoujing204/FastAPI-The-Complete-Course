@@ -57,9 +57,91 @@ async def test_get_current_user_missing_payload():
     assert excinfo.value.status_code == 401
     assert excinfo.value.detail == 'Could not validate user.'
 
+def test_create_user():
+    # Input data for the endpoint
+    create_user_data = {
+        "email": "testuser@example.com",
+        "username": "testuser",
+        "first_name": "Test",
+        "last_name": "User",
+        "role": "user",
+        "password": "strongpassword",
+        "phone_number": "1234567890"
+    }
+
+    # Send a POST request to the endpoint
+    response = client.post("/auth/", json=create_user_data)
+
+    # Assert endpoint response
+    assert response.status_code == 201, f"Response: {response.content}"
 
 
+    # Verify that the user was created in the database
+    db = TestingSessionLocal()
+    created_user = db.query(Users).filter(Users.username == create_user_data["username"]).first()
+    assert created_user is not None
+    assert created_user.email == create_user_data["email"]
+    assert created_user.username == create_user_data["username"]
+    assert created_user.first_name == create_user_data["first_name"]
+    assert created_user.last_name == create_user_data["last_name"]
+    with engine.connect() as connection:
+        connection.execute(text("DELETE FROM users;"))
+        connection.commit()
 
+def test_login_for_access_token_success(test_user):
+    """Test successful login and token generation."""
+    # Input data for the login
+    login_data = {
+        "username": "codingwithrobytest",
+        "password": "testpassword",
+    }
 
+    # Send a POST request to the /auth/token endpoint
+    response = client.post(
+        "/auth/token",
+        data={"username": login_data["username"], "password": login_data["password"]},
+    )
 
+    # Assert the response
+    assert response.status_code == 200
+    response_data = response.json()
+    assert "access_token" in response_data
+    assert response_data["token_type"] == "bearer"
 
+def test_login_for_access_token_invalid_credentials(test_user):
+    """Test login with invalid credentials."""
+    # Input data with incorrect password
+    login_data = {
+        "username": "codingwithrobytest",
+        "password": "wrongpassword",
+    }
+
+    # Send a POST request to the /auth/token endpoint
+    response = client.post(
+        "/auth/token",
+        data={"username": login_data["username"], "password": login_data["password"]},
+    )
+
+    # Assert the response
+    assert response.status_code == 401
+    response_data = response.json()
+    assert response_data["detail"] == "Could not validate user."
+
+def test_login_for_access_token_nonexistent_user():
+    """Test login with a nonexistent username."""
+    # Input data with a username that doesn't exist
+    login_data = {
+        "username": "nonexistentuser",
+        "password": "testpassword",
+    }
+
+    # Send a POST request to the /auth/token endpoint
+    response = client.post(
+        "/auth/token",
+        data={"username": login_data["username"], "password": login_data["password"]},
+    )
+
+    # Assert the response
+    assert response.status_code == 401
+    response_data = response.json()
+    assert response_data["detail"] == "Could not validate user."

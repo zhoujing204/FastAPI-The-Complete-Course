@@ -1,15 +1,12 @@
 from typing import Annotated
-
-from fastapi import APIRouter, Depends, HTTPException, Path
-from passlib.context import CryptContext
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
+from fastapi import APIRouter, Depends, HTTPException, Path
 from starlette import status
-
-
-from ..database import SessionLocal
-from ..models import Users
+from models import Users
+from database import SessionLocal
 from .auth import get_current_user
+from passlib.context import CryptContext
 
 router = APIRouter(
     prefix='/user',
@@ -65,3 +62,9 @@ async def change_phonenumber(user: user_dependency, db: db_dependency,
     user_model.phone_number = phone_number
     db.add(user_model)
     db.commit()
+
+
+
+
+
+
